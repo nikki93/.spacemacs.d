@@ -32,21 +32,17 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
-     ;; top
      spacemacs-helm
      better-defaults
      osx
 
-     ;; vc
      version-control
      git
 
-     ;; common
      syntax-checking
      auto-completion
      shell
 
-     ;; langs
      lua
      emacs-lisp
      markdown
@@ -60,10 +56,9 @@ values."
             web-mode-attr-indent-offset 2)
      clojure
      swift
-     ess
 
-     ;; etc
      nikki93
+     julia
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
