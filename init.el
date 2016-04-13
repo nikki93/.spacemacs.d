@@ -66,7 +66,7 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '()
    ;; A list of packages that will not be install and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(js2-mode)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'. (default t)
@@ -303,7 +303,8 @@ you should place your code here."
     (global-set-key (kbd "H-5") 'select-window-5)
     (global-set-key (kbd "H-6") 'select-window-6)
     (global-set-key (kbd "H-7") 'select-window-7))
-  )
+
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . react-mode)))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
