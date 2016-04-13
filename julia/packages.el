@@ -11,7 +11,8 @@
     :init
     (progn
       (add-hook 'inferior-ess-mode-hook 'auto-complete-mode)
-      (add-hook 'ess-julia-mode-hook 'auto-complete-mode)))
+      (add-hook 'ess-julia-mode-hook 'auto-complete-mode)
+      (add-hook 'ess-julia-mode-hook 'aggressive-indent-mode)))
   (with-eval-after-load 'ess-site
     (auto-complete-mode)
 
