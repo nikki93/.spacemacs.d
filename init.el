@@ -305,7 +305,13 @@ you should place your code here."
     (global-set-key (kbd "H-6") 'select-window-6)
     (global-set-key (kbd "H-7") 'select-window-7))
 
-  (add-to-list 'auto-mode-alist '("\\.js\\'" . react-mode)))
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . react-mode))
+
+  (add-hook 'slime-repl-mode-hook 'aggressive-indent-mode)
+  (add-hook 'clojure-mode-hook 'aggressive-indent-mode)
+  (add-hook 'cider-repl-mode-hook 'aggressive-indent-mode)
+  (add-hook 'emacs-lisp-mode-hook 'aggressive-indent-mode)
+  (add-hook 'lisp-mode-hook 'aggressive-indent-mode))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

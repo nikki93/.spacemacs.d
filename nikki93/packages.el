@@ -2,7 +2,6 @@
       '(helm
         neotree
         elm-mode
-        aggressive-indent
         paredit
         flycheck
         tern
@@ -24,17 +23,6 @@
     (progn
       (setq neo-window-width 23
             neo-theme 'arrow))))
-
-(defun nikki93/post-init-aggressive-indent ()
-  (use-package aggressive-indent
-    :defer t
-    :init
-    (progn
-      (add-hook 'slime-repl-mode-hook 'aggressive-indent-mode)
-      (add-hook 'clojure-mode-hook 'aggressive-indent-mode)
-      (add-hook 'cider-repl-mode-hook 'aggressive-indent-mode)
-      (add-hook 'emacs-lisp-mode-hook 'aggressive-indent-mode)
-      (add-hook 'lisp-mode-hook 'aggressive-indent-mode))))
 
 (defun nikki93/init-paredit ()
   (use-package paredit
