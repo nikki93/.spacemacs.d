@@ -21,6 +21,8 @@
 
       "cc" 'ess-eval-region-or-function-or-paragraph
       "cl" 'ess-load-file
+      "sf" 'ess-eval-region-or-function-or-paragraph
+      "sb" 'ess-load-file
 
       "dd" 'ess-display-help-on-object
       "da" 'ess-display-help-apropos

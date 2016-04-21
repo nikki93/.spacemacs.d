@@ -57,8 +57,7 @@ values."
      clojure
      swift
 
-     (julia :variables
-            julia-indent-offset 2)
+     julia
      nikki93
      )
    ;; List of additional packages that will be installed without being
