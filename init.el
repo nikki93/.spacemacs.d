@@ -135,7 +135,7 @@ values."
                                    :weight normal
                                    :width normal
                                    :powerline-scale 1.1)
-                               '("menlo"
+                               '("Menlo"
                                  :size 11
                                  :weight normal
                                  :width normal
