@@ -38,6 +38,7 @@ values."
 
      version-control
      git
+     github
 
      syntax-checking
      auto-completion
@@ -308,6 +309,7 @@ you should place your code here."
 
   (add-hook 'slime-repl-mode-hook 'aggressive-indent-mode)
   (add-hook 'clojure-mode-hook 'aggressive-indent-mode)
+  (add-hook 'clojurescript-mode-hook 'aggressive-indent-mode)
   (add-hook 'cider-repl-mode-hook 'aggressive-indent-mode)
   (add-hook 'emacs-lisp-mode-hook 'aggressive-indent-mode)
   (add-hook 'lisp-mode-hook 'aggressive-indent-mode))
@@ -321,7 +323,8 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(safe-local-variable-values
    (quote
-    ((eval setq nikki93/exponent-scratch-path
+    ((cider-cljs-lein-repl . "(start-figwheel)")
+     (eval setq nikki93/exponent-scratch-path
            (expand-file-name "./repl/scratch.js"
                              (file-name-directory
                               (let
