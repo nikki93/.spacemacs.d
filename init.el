@@ -65,7 +65,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(cyberpunk-theme)
    ;; A list of packages that will not be install and loaded.
    dotspacemacs-excluded-packages '(js2-mode)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -122,24 +122,20 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-dark
-                         spacemacs-light
-                         solarized-light
-                         solarized-dark
-                         leuven
-                         monokai
-                         zenburn)
+   dotspacemacs-themes (if (eq system-type 'gnu/linux)
+                           '(cyberpunk spacemacs-dark)
+                         '(spacemacs-dark cyberpunk))
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font (if (eq system-type 'windows-nt)
-                                 '("Source Code Pro"
+   dotspacemacs-default-font (if (eq system-type 'gnu/linux)
+                                 '("DejaVu Sans Mono"
                                    :size 12
                                    :weight normal
                                    :width normal
                                    :powerline-scale 1.1)
-                               '("Menlo"
+                               '("menlo"
                                  :size 11
                                  :weight normal
                                  :width normal
