@@ -286,23 +286,16 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  ;; Transparency
-  (set-frame-parameter (selected-frame) 'alpha '(100 100))
-  (add-to-list 'default-frame-alist '(alpha 100 100))
+  ;; nixos?
+  (when (eq system-type 'gnu/linux)
+    (autoload 'nix-mode "nix-mode" "Major mode for editing Nix expressions." t)
+    (push '("\\.nix\\'" . nix-mode) auto-mode-alist)
+    (push '("\\.nix\\.in\\'" . nix-mode) auto-mode-alist))
 
-  ;; Window switch keys for Windows
-  (when (eq system-type 'windows-nt)
-    (setq w32-lwindow-modifier 'hyper)
-    (global-set-key (kbd "H-1") 'select-window-1)
-    (global-set-key (kbd "H-2") 'select-window-2)
-    (global-set-key (kbd "H-3") 'select-window-3)
-    (global-set-key (kbd "H-4") 'select-window-4)
-    (global-set-key (kbd "H-5") 'select-window-5)
-    (global-set-key (kbd "H-6") 'select-window-6)
-    (global-set-key (kbd "H-7") 'select-window-7))
-
+  ;; use react-mode for all javascript
   (add-to-list 'auto-mode-alist '("\\.js\\'" . react-mode))
 
+  ;; aggressively indent lisps
   (add-hook 'slime-repl-mode-hook 'aggressive-indent-mode)
   (add-hook 'clojure-mode-hook 'aggressive-indent-mode)
   (add-hook 'clojurescript-mode-hook 'aggressive-indent-mode)
