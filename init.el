@@ -286,12 +286,6 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  ;; nixos?
-  (when (eq system-type 'gnu/linux)
-    (autoload 'nix-mode "nix-mode" "Major mode for editing Nix expressions." t)
-    (push '("\\.nix\\'" . nix-mode) auto-mode-alist)
-    (push '("\\.nix\\.in\\'" . nix-mode) auto-mode-alist))
-
   ;; use react-mode for all javascript
   (add-to-list 'auto-mode-alist '("\\.js\\'" . react-mode))
 
