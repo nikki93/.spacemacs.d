@@ -1,7 +1,6 @@
 (setq nikki93-packages
       '(helm
         neotree
-        elm-mode
         paredit
         flycheck
         tern
@@ -110,8 +109,4 @@
         "mv" 'auctex/build-view))))
 
 (defun nikki93/init-glsl-mode ())
-
-(defun nikki93/init-elm-mode ())
-
-(defun nikki93/init-darkroom ())
 
