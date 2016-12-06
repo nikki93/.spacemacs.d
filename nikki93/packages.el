@@ -81,6 +81,9 @@
                           '(display-buffer-same-window)
                         nil))))
 
+      ;; automatically refresh when saving a tracked file
+      (add-hook 'after-save-hook 'magit-after-save-refresh-status)
+
       ;; I use M-n to switch to window n, so unbind these
       (define-key magit-mode-map "\M-1" nil)
       (define-key magit-mode-map "\M-2" nil)
