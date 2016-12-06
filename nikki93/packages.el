@@ -69,6 +69,7 @@
     :config
     (progn
       (setq magit-save-some-buffers nil)
+      (setq magit-save-repository-buffers nil)
       (setq magit-display-buffer-function
             (lambda (buffer)
               (display-buffer
