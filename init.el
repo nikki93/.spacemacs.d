@@ -138,7 +138,7 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(sanityinc-tomorrow-bright)
+   dotspacemacs-themes '(leuven)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
@@ -326,9 +326,9 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   ;; Simple powerline separator
   (setq powerline-default-separator 'curve)
-  ;; (set-display-table-slot standard-display-table
-  ;;                         'vertical-border
-  ;;                         (make-glyph-code ? ))
+  (set-display-table-slot standard-display-table
+                          'vertical-border
+                          (make-glyph-code ?│))
 
   ;; Enable projectile caching
   (setq projectile-enable-caching t)
@@ -358,15 +358,15 @@ you should place your code here."
   (add-hook 'lisp-mode-hook 'aggressive-indent-mode)
 
   ;; Force transparent background
-  (defun on-frame-open (frame)
-    (if (not (display-graphic-p frame))
-        (set-face-background 'default "unspecified-bg" frame)))
-  (on-frame-open (selected-frame))
-  (add-hook 'after-make-frame-functions 'on-frame-open)
-  (defun on-after-init ()
-    (unless (display-graphic-p (selected-frame))
-      (set-face-background 'default "unspecified-bg" (selected-frame))))
-  (add-hook 'window-setup-hook 'on-after-init)
+  ;; (defun on-frame-open (frame)
+  ;;   (if (not (display-graphic-p frame))
+  ;;       (set-face-background 'default "unspecified-bg" frame)))
+  ;; (on-frame-open (selected-frame))
+  ;; (add-hook 'after-make-frame-functions 'on-frame-open)
+  ;; (defun on-after-init ()
+  ;;   (unless (display-graphic-p (selected-frame))
+  ;;     (set-face-background 'default "unspecified-bg" (selected-frame))))
+  ;; (add-hook 'window-setup-hook 'on-after-init)
 
   )
 
