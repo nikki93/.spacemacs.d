@@ -330,6 +330,9 @@ you should place your code here."
                           'vertical-border
                           (make-glyph-code ?│))
 
+  ;; No `.#` files please
+  (setq create-lockfiles nil)
+
   ;; Enable projectile caching
   (setq projectile-enable-caching t)
 
