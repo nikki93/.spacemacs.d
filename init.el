@@ -371,6 +371,8 @@ you should place your code here."
   ;;     (set-face-background 'default "unspecified-bg" (selected-frame))))
   ;; (add-hook 'window-setup-hook 'on-after-init)
 
+  ;; Indent by two spaces in JavaScript and JSON
+  (setq js-indent-level 2)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
