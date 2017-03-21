@@ -4,6 +4,7 @@
         paredit
         flycheck
         tern
+        cider
         magit
         4clojure
         auctex
@@ -40,6 +41,7 @@
     (progn
       (define-key paredit-mode-map (kbd "M-{") 'paredit-wrap-curly)
       (define-key paredit-mode-map (kbd "M-[") 'paredit-wrap-square)
+      (define-key paredit-mode-map (kbd "M-[") nil)
 
       (add-hook 'slime-repl-mode-hook   ; Respect paredit deletion in repl
                 (lambda ()
@@ -100,6 +102,16 @@
     :config
     (progn
       (setq tern-command (append tern-command '("--no-port-file"))))))
+
+(defun nikki93/post-init-cider ()
+  (use-package cider
+    :defer t
+    :config
+    (progn
+      (setq cider-cljs-lein-repl
+            "(do (require 'figwheel-sidecar.repl-api)
+                 (figwheel-sidecar.repl-api/start-figwheel!)
+                 (figwheel-sidecar.repl-api/cljs-repl))"))))
 
 (defun nikki93/post-init-magit ()
   (use-package magit
