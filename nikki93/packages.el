@@ -108,10 +108,12 @@
     :defer t
     :config
     (progn
-      (setq cider-cljs-lein-repl
-            "(do (require 'figwheel-sidecar.repl-api)
-                 (figwheel-sidecar.repl-api/start-figwheel!)
-                 (figwheel-sidecar.repl-api/cljs-repl))"))))
+      (setq cider-cljs-boot-repl "Weasel")
+      ;; (setq cider-cljs-lein-repl
+      ;;       "(do (require 'figwheel-sidecar.repl-api)
+      ;;            (figwheel-sidecar.repl-api/start-figwheel!)
+      ;;            (figwheel-sidecar.repl-api/cljs-repl))")
+      (setq cider-boot-parameters "dev"))))
 
 (defun nikki93/post-init-magit ()
   (use-package magit
