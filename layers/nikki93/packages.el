@@ -3,7 +3,6 @@
         neotree
         paredit
         flycheck
-        tern
         cider
         magit
         4clojure
@@ -95,13 +94,6 @@
 ;;     :config
 ;;     (progn
 ;;       (setq flycheck-display-errors-function 'flycheck-display-error-messages-unless-error-list))))
-
-(defun nikki93/post-init-tern ()
-  (use-package tern
-    :defer t
-    :config
-    (progn
-      (setq tern-command (append tern-command '("--no-port-file"))))))
 
 (defun nikki93/post-init-cider ()
   (use-package cider
