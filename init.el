@@ -150,8 +150,8 @@ values."
                                               :weight normal
                                               :width normal
                                               :powerline-scale 1.1))
-                               ('gnu/linux '("Mono"
-                                             :size 14
+                               ('gnu/linux '("DejaVu Sans Mono"
+                                             :size 8.5
                                              :weight normal
                                              :width normal
                                              :powerline-scale 1.1))
