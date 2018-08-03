@@ -2,27 +2,29 @@
       '(helm
         neotree
         paredit
-        flycheck
-        cider
+        ;; flycheck
+        ;; cider
         magit
-        4clojure
-        auctex
+        ;; 4clojure
+        ;; auctex
         glsl-mode
         darkroom
+        lua-mode
         ))
+
+(defun nikki93/post-init-neotree ()
+  (use-package neotree
+    :defer t
+    :init
+    (progn
+      (setq neo-window-width 23
+            neo-theme 'arrow))))
 
 (defun nikki93/post-init-helm ()
   (use-package helm
     :defer t
     :config
     (setq helm-split-window-in-side-p t)))
-
-(defun nikki93/post-init-neotree ()
-  (use-package neotree
-    :init
-    (progn
-      (setq neo-window-width 23
-            neo-theme 'arrow))))
 
 (defun nikki93/init-paredit ()
   (use-package paredit
@@ -51,62 +53,6 @@
       ;; Mode-line icon
       (spacemacs|diminish paredit-mode " (Ⓟ)" " (P)"))))
 
-(defun nikki93/init-4clojure ()
-  (use-package 4clojure
-    :init
-    (progn
-      (defun nikki93/4clojure-check-and-proceed ()
-        "Check the answer and show the next question if it worked."
-        (interactive)
-        (unless
-            (save-excursion
-              ;; Find last sexp (the answer).
-              (goto-char (point-max))
-              (forward-sexp -1)
-              ;; Check the answer.
-              (cl-letf ((answer
-                         (buffer-substring (point) (point-max)))
-                        ;; Preserve buffer contents, in case you failed.
-                        ((buffer-string)))
-                (goto-char (point-min))
-                (while (search-forward "__" nil t)
-                  (replace-match answer))
-                (string-match "failed." (4clojure-check-answers))))
-          (4clojure-next-question)))
-
-      (defadvice 4clojure/start-new-problem
-          (after nikki93/4clojure/start-new-problem-advice () activate)
-        ;; Prettify the 4clojure buffer.
-        (goto-char (point-min))
-        (forward-line 2)
-        (forward-char 3)
-        (fill-paragraph)
-        ;; Position point for the answer
-        (goto-char (point-max))
-        (insert "\n\n\n")
-        (forward-char -1)
-        ;; Define our key.
-        (local-set-key (kbd "M-j") #'nikki93/4clojure-check-and-proceed)))))
-
-;; (defun nikki93/post-init-flycheck ()
-;;   (use-package flycheck
-;;     :defer t
-;;     :config
-;;     (progn
-;;       (setq flycheck-display-errors-function 'flycheck-display-error-messages-unless-error-list))))
-
-(defun nikki93/post-init-cider ()
-  (use-package cider
-    :defer t
-    :config
-    (progn
-      (setq cider-cljs-boot-repl "Weasel")
-      ;; (setq cider-cljs-lein-repl
-      ;;       "(do (require 'figwheel-sidecar.repl-api)
-      ;;            (figwheel-sidecar.repl-api/start-figwheel!)
-      ;;            (figwheel-sidecar.repl-api/cljs-repl))")
-      (setq cider-boot-parameters "dev"))))
-
 (defun nikki93/post-init-magit ()
   (use-package magit
     :defer t
@@ -134,27 +80,90 @@
       (define-key magit-mode-map "\M-3" nil)
       (define-key magit-mode-map "\M-4" nil))))
 
-(defun auctex/init-auctex ()
-  (use-package tex
+(defun nikki93/init-glsl-mode ())
+
+(defun lua/post-init-lua-mode ()
+  (use-package lua-mode
     :defer t
     :config
     (progn
-      (setq TeX-auto-save t)
-      (setq TeX-parse-self t)
-      (setq-default TeX-master t)
+      (setq lua-indent-level 4))))
 
-      (defun auctex/build ()
-        (interactive)
-        (if (buffer-modified-p)
-            (progn
-              (let ((TeX-save-query nil))
-                (TeX-save-document (TeX-master-file)))
-              (setq build-proc (TeX-command "LaTeX" 'TeX-master-file -1))
-              (set-process-sentinel  build-proc  'auctex/build-sentinel))))
 
-      (evil-leader/set-key-for-mode 'latex-mode
-        "mb" 'auctex/build
-        "mv" 'auctex/build-view))))
 
-(defun nikki93/init-glsl-mode ())
+;; (defun nikki93/post-init-cider ()
+;;   (use-package cider
+;;     :defer t
+;;     :config
+;;     (progn
+;;       (setq cider-cljs-boot-repl "Weasel")
+;;       (setq cider-boot-parameters "dev"))))
 
+
+;; (defun nikki93/init-4clojure ()
+;;   (use-package 4clojure
+;;     :init
+;;     (progn
+;;       (defun nikki93/4clojure-check-and-proceed ()
+;;         "Check the answer and show the next question if it worked."
+;;         (interactive)
+;;         (unless
+;;             (save-excursion
+;;               ;; Find last sexp (the answer).
+;;               (goto-char (point-max))
+;;               (forward-sexp -1)
+;;               ;; Check the answer.
+;;               (cl-letf ((answer
+;;                          (buffer-substring (point) (point-max)))
+;;                         ;; Preserve buffer contents, in case you failed.
+;;                         ((buffer-string)))
+;;                 (goto-char (point-min))
+;;                 (while (search-forward "__" nil t)
+;;                   (replace-match answer))
+;;                 (string-match "failed." (4clojure-check-answers))))
+;;           (4clojure-next-question)))
+
+;;       (defadvice 4clojure/start-new-problem
+;;           (after nikki93/4clojure/start-new-problem-advice () activate)
+;;         ;; Prettify the 4clojure buffer.
+;;         (goto-char (point-min))
+;;         (forward-line 2)
+;;         (forward-char 3)
+;;         (fill-paragraph)
+;;         ;; Position point for the answer
+;;         (goto-char (point-max))
+;;         (insert "\n\n\n")
+;;         (forward-char -1)
+;;         ;; Define our key.
+;;         (local-set-key (kbd "M-j") #'nikki93/4clojure-check-and-proceed)))))
+
+
+;; (defun nikki93/post-init-flycheck ()
+;;   (use-package flycheck
+;;     :defer t
+;;     :config
+;;     (progn
+;;       (setq flycheck-display-errors-function 'flycheck-display-error-messages-unless-error-list))))
+
+
+;; (defun auctex/init-auctex ()
+;;   (use-package tex
+;;     :defer t
+;;     :config
+;;     (progn
+;;       (setq TeX-auto-save t)
+;;       (setq TeX-parse-self t)
+;;       (setq-default TeX-master t)
+
+;;       (defun auctex/build ()
+;;         (interactive)
+;;         (if (buffer-modified-p)
+;;             (progn
+;;               (let ((TeX-save-query nil))
+;;                 (TeX-save-document (TeX-master-file)))
+;;               (setq build-proc (TeX-command "LaTeX" 'TeX-master-file -1))
+;;               (set-process-sentinel  build-proc  'auctex/build-sentinel))))
+
+;;       (evil-leader/set-key-for-mode 'latex-mode
+;;         "mb" 'auctex/build
+;;         "mv" 'auctex/build-view))))
