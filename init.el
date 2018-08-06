@@ -152,11 +152,8 @@ values."
                                               :weight normal
                                               :width normal
                                               :powerline-scale 1.1))
-                               ('gnu/linux '("Mono"
-                                             :size 14
-                                             :weight normal
-                                             :width normal
-                                             :powerline-scale 1.1))
+                               ('gnu/linux '("Terminus"
+                                             :size 11.0))
                                ('darwin '("Menlo"
                                           :size 11
                                           :weight normal
