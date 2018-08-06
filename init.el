@@ -320,7 +320,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
                  Can be installed with `brew install trash', or `brew install osxutils`''."
         (call-process (executable-find "trash") nil 0 nil file))
     ;; regular move to trash directory
-    (setq trash-directory "~/.Trash/emacs")))
+    (setq trash-directory "~/.Trash/emacs"))
+
+  (setq deft-directory "~/Dropbox/Org/"))
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
