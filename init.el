@@ -60,6 +60,7 @@ values."
 
      markdown
      org
+     deft
 
      themes-megapack
 
