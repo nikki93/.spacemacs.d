@@ -45,6 +45,7 @@ values."
      auto-completion
      shell
 
+     c-c++
      (lua :variables lua-indent-level 4)
      emacs-lisp
      (react :variables
