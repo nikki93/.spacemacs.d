@@ -1,0 +1,3 @@
+[submodule "lua-mode"]
+	path = lua-mode
+	url = https://github.com/Ambrevar/lua-mode.git
