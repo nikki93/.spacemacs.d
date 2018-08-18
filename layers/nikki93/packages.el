@@ -87,7 +87,8 @@
     :defer t
     :config
     (progn
-      (setq lua-indent-level 4))))
+      (setq lua-indent-level 4
+            lua-indent-string-contents nil))))
 
 
 
