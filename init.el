@@ -379,6 +379,7 @@ you should place your code here."
   (add-hook 'cider-repl-mode-hook 'aggressive-indent-mode)
   (add-hook 'emacs-lisp-mode-hook 'aggressive-indent-mode)
   (add-hook 'lisp-mode-hook 'aggressive-indent-mode)
+  (add-hook 'racket-mode-hook 'aggressive-indent-mode)
 
   ;; Nix things
   (add-to-list 'auto-mode-alist '("\\.nix\\'" . nix-mode))
