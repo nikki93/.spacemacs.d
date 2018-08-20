@@ -391,6 +391,10 @@ you should place your code here."
   ;; Reuse existing window displays on frames if open
   (add-to-list 'display-buffer-alist
                '("." nil (reusable-frames . t)))
+
+  ;; See https://github.com/syl20bnr/spacemacs/issues/9756#issuecomment-363436814
+  (setq spacemacs-default-jump-handlers
+        (remove 'evil-goto-definition spacemacs-default-jump-handlers))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
