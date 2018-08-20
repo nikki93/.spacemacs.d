@@ -384,8 +384,9 @@ you should place your code here."
   ;; Nix things
   (add-to-list 'auto-mode-alist '("\\.nix\\'" . nix-mode))
 
-  ;; Deft directory
+  ;; Org things
   (setq deft-directory "~/Dropbox/Org/")
+  (setq org-agenda-files '("~/Dropbox/Org/"))
 
   ;; Reuse existing window displays on frames if open
   (add-to-list 'display-buffer-alist
