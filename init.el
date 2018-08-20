@@ -45,7 +45,9 @@ values."
      auto-completion
      shell
 
-     (c-c++ :variables c-basic-offset 4)
+     (c-c++ :variables
+            c-basic-offset 4
+            c-c++-default-mode-for-headers 'c++-mode)
      ycmd
      (lua :variables lua-indent-level 4)
      emacs-lisp
