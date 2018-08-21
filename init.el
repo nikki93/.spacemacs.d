@@ -368,6 +368,11 @@ you should place your code here."
   ;; Lua things
   (add-to-list 'load-path (file-truename "~/.spacemacs.d/lua-mode/"))
 
+  ;; Fennel things
+  (autoload 'fennel-mode "~/.spacemacs.d/fennel-mode/fennel-mode.el" nil t)
+  (add-to-list 'auto-mode-alist '("\\.fnl\\'" . fennel-mode))
+  (add-hook 'fennel-mode-hook 'aggressive-indent-mode)
+
   ;; JS things
   (add-to-list 'auto-mode-alist '("\\.js\\'" . react-mode))
   (setq js-indent-level 2)
@@ -387,6 +392,8 @@ you should place your code here."
   ;; Org things
   (setq deft-directory "~/Dropbox/Org/")
   (setq org-agenda-files '("~/Dropbox/Org/"))
+  (setq org-agenda-window-setup 'current-window)
+  (setq org-src-window-setup 'current-window)
 
   ;; Reuse existing window displays on frames if open
   (add-to-list 'display-buffer-alist
