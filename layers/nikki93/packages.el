@@ -10,6 +10,7 @@
         glsl-mode
         darkroom
         lua-mode
+        nov
         ))
 
 (defun nikki93/post-init-neotree ()
@@ -81,6 +82,12 @@
       (define-key magit-mode-map "\M-4" nil))))
 
 (defun nikki93/init-glsl-mode ())
+
+(defun nikki93/init-nov ()
+  (use-package nov
+    :config
+    (progn
+      (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode)))))
 
 (defun lua/post-init-lua-mode ()
   (use-package lua-mode
