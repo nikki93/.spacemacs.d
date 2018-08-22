@@ -2,6 +2,9 @@
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
+;; It seems I really have to set this way up here for some reason...
+(setq spacemacs-theme-org-agenda-height nil)
+
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
 You should not put any user code in this function besides modifying the variable
@@ -79,7 +82,7 @@ values."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '(evil-search-highlight-persist)
+   dotspacemacs-excluded-packages '(evil-search-highlight-persist org-projectile)
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
    ;; `used-only' installs only explicitly used packages and uninstall any
@@ -398,6 +401,15 @@ you should place your code here."
   (setq org-agenda-files '("~/Dropbox/Org/"))
   (setq org-agenda-window-setup 'current-window)
   (setq org-src-window-setup 'current-window)
+  (setq org-default-notes-file "~/Dropbox/Org/main.org")
+  (setq org-link-frame-setup '((file . find-file)))
+  (setq org-capture-templates
+        '(("t" "Todo" entry (file+headline "~/Dropbox/Org/main.org" "Captured")
+           "* TODO %?\n  %a")))
+  (setq org-refile-targets '((nil :maxlevel . 9)
+                             (org-agenda-files :maxlevel . 9)))
+  (setq org-outline-path-complete-in-steps nil)
+  (setq org-refile-use-outline-path t)
 
   ;; Reuse existing window displays on frames if open
   (add-to-list 'display-buffer-alist
