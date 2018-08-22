@@ -404,8 +404,10 @@ you should place your code here."
   (setq org-default-notes-file "~/Dropbox/Org/main.org")
   (setq org-link-frame-setup '((file . find-file)))
   (setq org-capture-templates
-        '(("t" "Todo" entry (file+headline "~/Dropbox/Org/main.org" "Captured")
-           "* TODO %?\n  %a")))
+        '(("f" "File link" entry (file+headline "~/Dropbox/Org/main.org" "Captured")
+           "* TODO %?\n  %a")
+          ("w" "Web link" entry (file+headline "~/Dropbox/Org/main.org" "Captured")
+           "* [[%x][%?]]")))
   (setq org-refile-targets '((nil :maxlevel . 9)
                              (org-agenda-files :maxlevel . 9)))
   (setq org-outline-path-complete-in-steps nil)
