@@ -60,6 +60,7 @@ values."
             web-mode-attr-indent-offset 2)
      clojure
      racket
+     rust
      html
 
      markdown
@@ -367,6 +368,9 @@ you should place your code here."
 
   ;; Lua things
   (add-to-list 'load-path (file-truename "~/.spacemacs.d/lua-mode/"))
+
+  ;; Rust things
+  (setq racer-rust-src-path (string-trim-right (shell-command-to-string "nix-build '<nixpkgs>' --no-build-output -A rustPlatform.rustcSrc")))
 
   ;; Fennel things
   (autoload 'fennel-mode "~/.spacemacs.d/fennel-mode/fennel-mode.el" nil t)
