@@ -406,8 +406,12 @@ you should place your code here."
   (setq org-capture-templates
         '(("f" "File link" entry (file+headline "~/Dropbox/Org/main.org" "Captured")
            "* TODO %?\n  %a")
+          ("t" "Todo" entry (file+headline "~/Dropbox/Org/main.org" "Captured")
+           "* TODO %?")
           ("w" "Web link" entry (file+headline "~/Dropbox/Org/main.org" "Captured")
-           "* [[%x][%?]]")))
+           "* [[%x][%?]]")
+          ("n" "Note" entry (file+headline "~/Dropbox/Org/main.org" "Captured")
+           "* %?")))
   (setq org-refile-targets '((nil :maxlevel . 9)
                              (org-agenda-files :maxlevel . 9)))
   (setq org-outline-path-complete-in-steps nil)
