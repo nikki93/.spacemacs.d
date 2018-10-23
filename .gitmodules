@@ -1,6 +1,6 @@
 [submodule "lua-mode"]
 	path = lua-mode
-	url = https://github.com/nikki93/lua-mode.git
+	url = git@github.com:nikki93/lua-mode.git
 [submodule "fennel-mode"]
 	path = fennel-mode
 	url = https://gitlab.com/technomancy/fennel-mode.git
